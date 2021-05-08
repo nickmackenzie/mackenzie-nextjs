@@ -34,7 +34,7 @@ function HomePage() {
               <footer class="card-footer">
                 <p class="card-footer-item">
                   <span>
-                    View on{" "}
+                    View on
                     <a href="https://twitter.com/codinghorror/status/506010907021828096">
                       Twitter
                     </a>
