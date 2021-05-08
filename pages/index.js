@@ -1,13 +1,35 @@
+import Showcase from "../components/showcase";
 function HomePage() {
   return (
     <>
-      <section class="hero is-success is-halfheight">
+      <nav class="navbar">
+        <div class="container">
+          <div id="navMenu" class="navbar-menu">
+            <div class="navbar-start">
+              <a class="navbar-item">Home</a>
+              <a href="/about" class="navbar-item">
+                Documentation
+              </a>
+            </div>
+
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                  <a class="button is-dark">Github</a>
+                  <a class="button is-link">Linkdeink</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="hero has-background-black is-halfheight">
         <div class="hero-body">
           <div class="container has-text-centered">
-            <div class="card">
+            <div class="card has-background-black has-text-white is-shadowless">
               <div class="card-content ">
-                <p class="title has-text-black">Nick MacKenzie</p>
-                <p class="subtitle has-text-black">Web Developer</p>
+                <p class="title has-text-white">Nick MacKenzie</p>
+                <p class="subtitle has-text-white ">Web Developer</p>
               </div>
               <footer class="card-footer">
                 <p class="card-footer-item">
@@ -28,6 +50,7 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <Showcase />
     </>
   );
 }
