@@ -1,22 +1,42 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import style from "../styles/top.module.css";
 export default function Top() {
   const [active, setActive] = useState("about");
+  const [topSize, setSize] = useState(true);
   let iconSize = "42px";
   let languageIcon = "m-4";
   let iconColor = "black";
+
+  function changeSize() {
+    topSize = !topSize;
+  }
+
+  const handleSizeChange = (e) => {
+    console.log(e);
+    topSize = active === "projects" ? "is-small" : "is-large";
+  };
+  useEffect(() => {
+    handleSizeChange;
+  });
   let icon = [[]];
   return (
-    <section class="hero has-background-light has-text-primary is-small">
-      <div class="hero-body">
+    <section
+      class={`hero has-background-light has-text-primary ${
+        topSize ? "is-large" : "is-small"
+      }`}
+    >
+      <div className="hero-body">
         <div class="container has-text-centered">
-          <div class="card   has-text-white is-shadowless">
+          <div class="card  has-text-white is-shadowless">
             <div class="card-content ">
-              <p class="title has-text-black is-size-1 is-uppercase is-family-primary">
+              <p
+                class={`${style.name} title  is-size-1 is-uppercase is-family-primary`}
+              >
                 Nick MacKenzie
               </p>
-              <p class="subtitle has-text-primary is-size-4 is-uppercase is-family-secondary  ">
+              <p class="subtitle has-text-black is-size-4 is-uppercase is-family-secondary  ">
                 Web Developer
               </p>
             </div>
@@ -108,39 +128,46 @@ export default function Top() {
                 </svg>
               </p>
             </footer>
+            <div class="tabs is-centered is-size-4 ">
+              <ul>
+                <li
+                  onClick={() => setActive("about")}
+                  class={`has-text-black  ${
+                    active === "about" ? "is-active" : ""
+                  }`}
+                >
+                  <Link href="/">
+                    <a class="has-text-black">About</a>
+                  </Link>{" "}
+                </li>
+
+                <li
+                  class={`has-text-black  ${
+                    active === "projects" ? "is-active" : ""
+                  }`}
+                >
+                  {" "}
+                  <Link href="/projects">
+                    <a onClick={() => setSize(false)} class="has-text-black">
+                      Projects
+                    </a>
+                  </Link>
+                </li>
+                <li
+                  onClick={() => setActive("contact")}
+                  class={`has-text-black  ${
+                    active === "contact" ? "is-active" : ""
+                  }`}
+                >
+                  <Link href="/contact">
+                    <a class="has-text-black">Contact</a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>{" "}
-      <div class="tabs is-centered is-size-4 ">
-        <ul>
-          <li
-            onClick={() => setActive("about")}
-            class={`has-text-black  ${active === "about" ? "is-active" : ""}`}
-          >
-            <Link href="/">
-              <a class="has-text-black">About</a>
-            </Link>{" "}
-          </li>
-          <li
-            class={`has-text-black  ${
-              active === "projects" ? "is-active" : ""
-            }`}
-          >
-            {" "}
-            <Link href="/projects">
-              <a class="has-text-black">Projects</a>
-            </Link>
-          </li>
-          <li
-            onClick={() => setActive("contact")}
-            class={`has-text-black  ${active === "contact" ? "is-active" : ""}`}
-          >
-            <Link href="/contact">
-              <a class="has-text-black">Contact</a>
-            </Link>
-          </li>
-        </ul>
-      </div>
     </section>
   );
 }

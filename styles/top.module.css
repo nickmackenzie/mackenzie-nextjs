@@ -1,0 +1,7 @@
+.name {
+  font-size: 72px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #30cfd0 0%, #736cedff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -3,9 +3,7 @@ import About from "../components/about";
 function HomePage() {
   return (
     <>
-      <Layout>
-        <About></About>
-      </Layout>
+      <Layout></Layout>
     </>
   );
 }
