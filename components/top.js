@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Top() {
-  const [active, setActive] = useState("about");
+  const [active, setActive] = useState("contact");
   return (
     <section class="hero has-background-black is-halfheight">
       <div class="hero-body">
@@ -15,9 +16,13 @@ export default function Top() {
             <footer class="card-footer">
               <p class="card-footer-item">
                 <span>
-                  View on
                   <a href="https://twitter.com/codinghorror/status/506010907021828096">
-                    Twitter
+                    <img
+                      class="m-2 has-text-info"
+                      width="48px"
+                      src="/github.svg"
+                    />
+                    <img class="m-2" width="48px" src="/linkedin.svg" />
                   </a>
                 </span>
               </p>
@@ -35,8 +40,8 @@ export default function Top() {
           <li
             class={`has-text-white  ${active === "about" ? "is-active" : ""}`}
           >
-            <Link onClick={() => setActive("about")} href="/about">
-              <a>About</a>
+            <Link href="/about">
+              <a onClick={() => setActive("about")}>About</a>
             </Link>{" "}
           </li>
           <li
@@ -44,19 +49,22 @@ export default function Top() {
               active === "projects" ? "is-active" : ""
             }`}
           >
-            <a onClick={() => setActive("projects")} class="has-text-white">
+            <a class="has-text-white">
               {" "}
               <Link href="/projects">
-                <a class="has-text-white">Projects</a>
+                <a onClick={() => setActive("projects")} class="has-text-white">
+                  Projects
+                </a>
               </Link>
             </a>
           </li>
           <li
-            onClick={() => setActive("contact")}
             class={`has-text-white  ${active === "contact" ? "is-active" : ""}`}
           >
             <Link href="/contact">
-              <a class="has-text-white">Contact</a>
+              <a onClick={() => setActive("contact")} class="has-text-white">
+                Contact
+              </a>
             </Link>
           </li>
         </ul>
