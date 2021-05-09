@@ -1,6 +1,7 @@
+import Layout from "../../components/layout";
 function AboutPage() {
   return (
-    <>
+    <Layout>
       <section class="hero is-success is-halfheight">
         <div class="hero-body">
           <div class="container has-text-centered">
@@ -28,7 +29,7 @@ function AboutPage() {
           </div>
         </div>
       </section>
-    </>
+    </Layout>
   );
 }
 
