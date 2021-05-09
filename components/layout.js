@@ -24,6 +24,9 @@ export default function Layout({
         <div class="content has-text-centered">
           <p>
             <strong>Design</strong> by Nick Mackenzie
+          </p>{" "}
+          <p>
+            <strong>Powered</strong> by NextJS
           </p>
         </div>
       </footer>
