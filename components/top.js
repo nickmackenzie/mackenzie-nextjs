@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Top() {
@@ -33,28 +33,31 @@ export default function Top() {
       <div class="tabs is-centered is-size-4 ">
         <ul>
           <li
-            class={`has-text-white  ${
-              window.location.pathname === "/about" ? "is-active" : ""
-            }`}
+            class={`has-text-white  ${active === "about" ? "is-active" : ""}`}
           >
-            <Link href="/about">
+            <Link onClick={() => setActive("about")} href="/about">
               <a>About</a>
             </Link>{" "}
           </li>
           <li
             class={`has-text-white  ${
-              window.location.pathname === "/projects" ? "is-active" : ""
+              active === "projects" ? "is-active" : ""
             }`}
           >
-            <a class="has-text-white">
+            <a onClick={() => setActive("projects")} class="has-text-white">
               {" "}
               <Link href="/projects">
                 <a class="has-text-white">Projects</a>
-              </Link>{" "}
+              </Link>
             </a>
           </li>
-          <li>
-            <a class="has-text-white">Contact</a>
+          <li
+            onClick={() => setActive("contact")}
+            class={`has-text-white  ${active === "contact" ? "is-active" : ""}`}
+          >
+            <Link href="/contact">
+              <a class="has-text-white">Contact</a>
+            </Link>
           </li>
         </ul>
       </div>
