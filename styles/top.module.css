@@ -1,6 +1,0 @@
-let icon = [{ iconSize: "42px", languageIcon: "m-4", iconColor: "black" }];
-
-icon {
-    width:42px;
-    color:black;
-}
